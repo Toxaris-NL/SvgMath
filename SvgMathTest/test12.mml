@@ -1,0 +1,37 @@
+﻿<math display="block">
+  <mrow>
+    <msqrt>
+      <mn>1</mn>
+      <mo>+</mo>
+      <msqrt>
+        <mn>1</mn>
+
+        <mo>+</mo>
+        <msqrt>
+          <mn>1</mn>
+          <mo>+</mo>
+          <msqrt>
+            <mn>1</mn>
+            <mo>+</mo>
+
+            <msqrt>
+              <mn>1</mn>
+              <mo>+</mo>
+              <msqrt>
+                <mn>1</mn>
+                <mo>+</mo>
+                <msqrt>
+
+                  <mn>1</mn>
+                  <mo>+</mo>
+                  <mi>x</mi>
+                </msqrt>
+              </msqrt>
+            </msqrt>
+          </msqrt>
+
+        </msqrt>
+      </msqrt>
+    </msqrt>
+  </mrow>
+</math>
