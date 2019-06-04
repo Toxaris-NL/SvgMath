@@ -22,11 +22,11 @@ namespace SvgMath
             m_configDoc = XDocument.Load(configFile);
 
             m_verbose = bool.Parse(m_configDoc.Element("config").Attributes().FirstOrDefault(x => x.Name == "verbose").Value);
-            m_configDoc.Descendants("defaults").ToList().ForEach(elem => SetDefaults(elem));
-            m_configDoc.Descendants("fallback").ToList().ForEach(elem => SetFallBackFamilies(elem));
-            m_configDoc.Descendants("mathvariant").ToList().ForEach(elem => SetMathVariant(elem));
-            m_configDoc.Descendants("operator-style").ToList().ForEach(elem => SetOperatorStyle(elem));
-            m_configDoc.Descendants("family").ToList().ForEach(elem => SetFontFamily(elem));
+            m_configDoc.Descendants("defaults").ToList().ForEach(SetDefaults);
+            m_configDoc.Descendants("fallback").ToList().ForEach(SetFallBackFamilies);
+            m_configDoc.Descendants("mathvariant").ToList().ForEach(SetMathVariant);
+            m_configDoc.Descendants("operator-style").ToList().ForEach(SetOperatorStyle);
+            m_configDoc.Descendants("family").ToList().ForEach(SetFontFamily);
         }
 
         private void SetDefaults(XElement defaultsElement)
@@ -98,7 +98,7 @@ namespace SvgMath
             string weight = mathVariant.Attributes("weight").FirstOrDefault() != null ? mathVariant.Attribute("weight").Value : "normal";
             string style = mathVariant.Attributes("style").FirstOrDefault() != null ? mathVariant.Attribute("style").Value : "normal";
             MathVariant mv = new MathVariant(name, weight, style);
-            mathVariant.Attribute("family").Value.Split(',').Select(x => x.Trim()).ToList().ForEach(x => mv.AddFamily(x));
+            mathVariant.Attribute("family").Value.Split(',').Select(x => x.Trim()).ToList().ForEach(mv.AddFamily);
             Variants.Add(name, mv);
         }
 
@@ -138,7 +138,7 @@ namespace SvgMath
         public List<OperatorStyle> OperatorStyles = new List<OperatorStyle>();
         public MathOperators MathOperators = new MathOperators();
         private readonly XDocument m_configDoc;
-        private bool m_verbose;
+        private readonly bool m_verbose;
         private Dictionary<string, GenericFontMetric> m_fontFamilies = new Dictionary<string, GenericFontMetric>();
     }
 }

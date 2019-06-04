@@ -137,7 +137,7 @@ namespace SvgMath
         public static void CMo(MathNode node)
         {
             // Apply special formatting to operators
-            OperatorStyle extraStyle = node.Config.OperatorStyles.Where(x => x.OpName == node.Text).FirstOrDefault();//.Styling;
+            OperatorStyle extraStyle = node.Config.OperatorStyles.FirstOrDefault(x => x.OpName == node.Text);//.Styling;
             if (extraStyle != null)
             {
                 node.Attributes.AddRange(extraStyle.Styling); //ToDo: verify
@@ -152,8 +152,8 @@ namespace SvgMath
             else if (new List<string>() { "mrow", "mstyle", "msqrt", "merror", "mpadded", "mphantom", "menclose", "mtd", "math" }.Any(x => x == node.Parent.ElementName))
             {
                 //ToDo: verify
-                List<MathNode> prevSiblings = node.Parent.Children.TakeWhile((value, i) => i != node.NodeIndex).Where(x => IsNonSpaceNode(x)).ToList();
-                List<MathNode> nextSiblings = node.Parent.Children.Skip(node.NodeIndex + 1).Where(x => IsNonSpaceNode(x)).ToList();
+                List<MathNode> prevSiblings = node.Parent.Children.TakeWhile((value, i) => i != node.NodeIndex).Where(IsNonSpaceNode).ToList();
+                List<MathNode> nextSiblings = node.Parent.Children.Skip(node.NodeIndex + 1).Where(IsNonSpaceNode).ToList();
 
                 if (prevSiblings.Count == 0 && nextSiblings.Count > 0)
                     form = "prefix";

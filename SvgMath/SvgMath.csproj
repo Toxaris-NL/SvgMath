@@ -5,17 +5,15 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Toxaris</Authors>
     <Description>C# port of the Python SvgMath utility by Nikolai Grigoriev.</Description>
-    <Copyright>Toxaris, 2019</Copyright>
+    <Copyright>Toxaris, (c) 2019</Copyright>
+    <PackageLicenseUrl>https://github.com/Toxaris-NL/SvgMath/blob/master/SvgMath/LICENSE.txt</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/Toxaris-NL/SvgMath</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Toxaris-NL/SvgMath</RepositoryUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Optimize>true</Optimize>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="System.Threading" Version="4.3.0" />
-    <PackageReference Include="System.Threading.Thread" Version="4.3.0" />
-  </ItemGroup>
 
   <ItemGroup>
     <None Update="svgmath.xml">

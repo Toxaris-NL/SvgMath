@@ -14,7 +14,7 @@ namespace SvgMath
             CharData = new Dictionary<int, SvgMath.CharMetric>();
             try
             {
-                using (FileStream fs = File.OpenRead(m_fontPath))//new FileStream(m_fontPath, FileMode.Open)
+                using (FileStream fs = File.OpenRead(m_fontPath))
                 {
                     m_reader = new BinaryReader(fs);
                     using (m_reader)
@@ -459,7 +459,7 @@ namespace SvgMath
         private uint m_numGlyphs = 0;
         private Dictionary<uint, Tuple<uint, uint>> m_uniNames = new Dictionary<uint, Tuple<uint, uint>>();
         private Dictionary<uint, Tuple<uint, uint>> m_macNames = new Dictionary<uint, Tuple<uint, uint>>();
-        private uint[] englishCodes = new uint[] { 0x409, 0x809, 0xC09, 0x1009, 0x1409, 0x1809 };
+        private uint[] englishCodes = { 0x409, 0x809, 0xC09, 0x1009, 0x1409, 0x1809 };
         public bool IsItalicFont { get { return m_italicAngle > 0; } }
     }
 }
